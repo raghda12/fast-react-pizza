@@ -1,16 +1,20 @@
-import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function LinkButton({ children, to }) {
   const navigate = useNavigate();
-  const className = 'text-sm text-blue-500 hover:text-blue-600 hover:underline'
+  const className =
+    'inline-flex min-h-[44px] items-center gap-2 text-sm font-medium text-ink-soft transition-colors hover:text-tomato';
+
   if (to === '-1')
     return (
-      <button className={className} onClick={()=> navigate(-1)}>
+      <button className={className} onClick={() => navigate(-1)}>
         {children}
-      </button> 
-  )
+      </button>
+    );
+
   return (
-    <Link to={to} className={className}>{children}</Link>
-  )
+    <Link to={to} className={className}>
+      {children}
+    </Link>
+  );
 }

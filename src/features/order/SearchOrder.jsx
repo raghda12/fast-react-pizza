@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Search } from "../../ui/Icons";
 
 export default function SearchOrder() {
   const [query, setQuery] = useState("");
@@ -11,12 +12,14 @@ export default function SearchOrder() {
     setQuery("");
   }
   return (
-    <form onSubmit={handelSubmit}>
+    <form onSubmit={handelSubmit} role="search" className="relative flex items-center">
+      <Search size={16} className="pointer-events-none absolute left-3.5 text-ash" />
       <input
+        aria-label="Search order number"
         placeholder="Search order #"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        className="w-28 rounded-full bg-yellow-100 px-4 py-2 text-sm transition-all duration-300 placeholder:text-stone-400 focus:outline-none focus:ring focus:ring-yellow-500 focus:ring-opacity-50 sm:w-64 sm:focus:w-72"
+        className="h-11 w-36 rounded-md border border-flour bg-paper pl-10 pr-3 text-sm text-ink transition-all duration-300 placeholder:text-ash focus:border-tomato focus:outline-none focus:ring-2 focus:ring-tomato/30 sm:w-60 sm:focus:w-72"
       />
     </form>
   );
